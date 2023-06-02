@@ -1,0 +1,34 @@
+{
+	"name": "whatsapp-handler-template",
+	"version": "1.0.0",
+	"description": "WhatsApp Handler Template Using Baileys",
+	"main": "index.js",
+	"dependencies": {
+		"@adiwajshing/keyed-db": "^0.2.4",
+		"@whiskeysockets/baileys": "github:WhiskeySockets/Baileys",
+		"dotenv": "^16.1.3",
+		"mongoose": "^7.2.2",
+		"qrcode-terminal": "^0.12.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DutaKey/whatsapp-handler-template.git"
+	},
+	"keywords": [
+		"handler",
+		"baileys",
+		"template",
+		"whatsapp",
+		"whiskeysockets"
+	],
+	"author": "DutaKey",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/DutaKey/whatsapp-handler-template/issues"
+	},
+	"homepage": "https://github.com/DutaKey/whatsapp-handler-template#readme"
+}
