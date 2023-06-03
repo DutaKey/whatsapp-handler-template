@@ -1,6 +1,6 @@
 {
 	"name": "whatsapp-handler-template",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "WhatsApp Handler Template Using Baileys",
 	"main": "index.js",
 	"dependencies": {
@@ -12,6 +12,7 @@
 	},
 	"devDependencies": {},
 	"scripts": {
+		"start": "node .",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {

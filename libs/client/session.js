@@ -1,9 +1,8 @@
-const baileys = require("@whiskeysockets/baileys");
-const { BufferJSON, initAuthCreds, proto } = baileys;
+const { BufferJSON, initAuthCreds, proto } = require("@whiskeysockets/baileys");
 const connectToMongo = require("../database/db.js");
 
 const useMongoAuthState = async (collectionName) => {
-	const mongo = await connectToMongo().then();
+	const mongo = await connectToMongo();
 	const collection = mongo.collection(collectionName);
 	const remove = async () => {
 		const drop = await collection.drop();

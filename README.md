@@ -1,8 +1,8 @@
 
 # Whatsapp Handler Template
 
-just raw for even bigger development in the future, so as not to make it full from the bottom
-Thanks to [whiskeysockets](https://github.com/WhiskeySockets/Baileys), as the main lib owner in this project.
+just raw for even bigger development in the future, so as not to make it full from the bottom, <br/>
+Thanks to [WhiskeySockets](https://github.com/WhiskeySockets/Baileys), as the main lib owner in this project.
 ## Content
 - [Highlights](#highlights)
 - [Require](#require)
