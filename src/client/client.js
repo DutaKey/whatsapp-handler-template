@@ -9,9 +9,17 @@ const { Boom } = require("@hapi/boom");
 const chatEvent = require("../events/chatEvent");
 const { serialize } = require("../client/serialize");
 const path = require("path").join;
+const { commandInit, collection } = require("./command");
 
 class WaClient {
+	constructor() {
+		this.type = "";
+	}
 	async connect(type) {
+		await commandInit();
+		// console.log(collection.all());
+		// return;
+		this.type = type;
 		const connectionType = type === "local" ? "Local" : "Mongodb";
 		const { state, saveCreds } =
 			type === "local"
@@ -44,10 +52,10 @@ class WaClient {
 					sock.logout();
 				} else if (reason === DisconnectReason.connectionClosed) {
 					this.log("Connection closed, reconnecting....", "warning");
-					this.connect();
+					this.connect(this.type);
 				} else if (reason === DisconnectReason.connectionLost) {
 					this.log("Connection Lost from Server, reconnecting...", "warning");
-					this.connect();
+					this.connect(this.type);
 				} else if (reason === DisconnectReason.connectionReplaced) {
 					this.log(
 						"Connection Replaced, Another New Session Opened, Please Close Current Session First",
@@ -62,10 +70,10 @@ class WaClient {
 					sock.logout();
 				} else if (reason === DisconnectReason.restartRequired) {
 					this.log("Restart Required, Restarting...", "warning");
-					this.connect();
+					this.connect(this.type);
 				} else if (reason === DisconnectReason.timedOut) {
 					this.log("Connection TimedOut, Reconnecting...", "warning");
-					this.connect();
+					this.connect(this.type);
 				} else {
 					sock.end(
 						`Unknown DisconnectReason: ${reason}|${lastDisconnect.error}`
@@ -114,8 +122,8 @@ class WaClient {
 			const emoji = emojis[type];
 			const color = colors[type];
 			const timestamp = new Date().toLocaleTimeString();
-			const logText = `[${timestamp}] ${emoji} ${text}`;
-			console.log(color + logText + resetColor);
+			const logText = `${color}[${resetColor}${timestamp}${color}] ${emoji} ${text}`;
+			console.log(logText + resetColor);
 		} else {
 			console.log(text);
 		}

@@ -1,4 +1,4 @@
-const WaClient = require("./libs/client/client");
+const WaClient = require("./src/client/client");
 const client = new WaClient();
 client.connect();
 // or
