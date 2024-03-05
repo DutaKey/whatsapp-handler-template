@@ -5,6 +5,6 @@ module.exports = {
 	description: "Ping Command",
 	prefix: true,
 	async run({ msg, sock, client }) {
-		msg.reply("pong");
+		msg.reply("pong!");
 	},
 };
