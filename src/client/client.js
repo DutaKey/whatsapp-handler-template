@@ -17,12 +17,10 @@ class WaClient {
 	}
 	async connect(type) {
 		await commandInit();
-		// console.log(collection.all());
-		// return;
 		this.type = type;
-		const connectionType = type === "local" ? "Local" : "Mongodb";
+		const connectionType = this.type === "local" ? "Local" : "Mongodb";
 		const { state, saveCreds } =
-			type === "local"
+			this.type === "local"
 				? await useMultiFileAuthState(path("./session"))
 				: await useMongoAuthState("session");
 		const sock = WASocket({
